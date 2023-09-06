@@ -1,0 +1,209 @@
+\section{事件详细过程}
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+
+\begin{changemargin}{-1cm}{-1cm}
+\begin{sidewaystable} % <-- HERE
+\begin{tikzpicture}[thick,snake=zigzag, line before snake = 5mm, line after snake = 5mm]
+%draw arrow
+\draw [green, ->          ] (0,8.0) -- (1,8.0);
+\draw [blue,  -stealth    ] (0,7.5) -- (1,7.5) node [right] {stealth};
+\draw [red,   -latex      ] (0,7.0) -- (1,7.0) node [right] {latex};
+\draw [cyan,  -to         ] (0,6.5) -- (1,6.5) node [right] {to};
+\draw [brown, -triangle 60] (0,6.0) -- (1,6.0) node [right] {triangle 60};
+%draw dashed lines
+\draw [dashed] (10,1) -- (10,11);
+
+     % draw horizontal line   
+    %  \draw (-1,0) -- (22,0); 
+       \draw (-0.5,0) -- (2,0);     
+       \draw[snake] (2,0) -- (4,0);  
+       \draw (4,0) -- (12,0);          
+       \draw[snake] (12,0) -- (14,0);  
+       \draw (14,0) -- (25.5,0);                 
+      % draw vertical lines
+       \foreach \x in {0,1,2,4,6,17,22,24,25.5}
+       \draw (\x cm,3pt) -- (\x cm,-3pt);
+        % draw nodes
+       \draw (0,0) node[below=3pt] {白马} node[above=3pt] {};
+          \draw (0,0) node[below=3pt] {} node[above=3pt] {印};
+          \draw (0,0) node[below=3pt] {} node[above=13pt] {一};
+          \draw (-0.0,0) node[below=16pt] {婦} node[above=10pt] {};
+          \draw (-0.0,0) node[below=27pt] {人} node[above=10pt] {};
+          \draw (-0.0,0) node[below=38pt] {懷} node[above=10pt] {};
+          \draw (-0.0,0) node[below=49pt] {孕} node[above=10pt] {};
+          
+         \draw (-0.0,-2) node[below=60pt] {婦} node[above=10pt] {};
+          \draw (-0.0,-2) node[below=71pt] {人} node[above=10pt] {};
+          \draw (-0.0,-2) node[below=82pt] {懷} node[above=10pt] {};
+          \draw (-0.0,-2) node[below=93pt] {孕} node[above=10pt] {};
+     
+
+
+         
+        \draw (1,0) node[below=3pt] {} node[above=3pt] {印};
+           \draw (1,0) node[below=3pt] {} node[above=13pt] {七};
+           
+        \draw (2,0) node[below=3pt] {} node[above=3pt] {号};
+           \draw (2,0) node[below=3pt] {} node[above=13pt] {一};
+           \draw (2,0) node[below=14pt] {龍} node[above=3pt] {};
+           \draw (2,0) node[below=25pt] {开} node[above=3pt] {};
+           \draw (2,0) node[below=36pt] {始} node[above=3pt] {};
+           \draw (2,0) node[below=47pt] {摔} node[above=3pt] {};
+         
+         \draw (3,0) node[below=14pt] {尾巴拖拉} node[above=3pt] {};
+         \draw (3,0) node[below=25pt] {三分之一} node[above=3pt] {};
+         \draw (3,0) node[below=36pt] {摔到地上} node[above=3pt] {};
+                 
+        \draw (4,0) node[below=3pt] {} node[above=3pt] {号};
+         \draw (4,0) node[below=3pt] {} node[above=13pt] {五};     
+            \draw (4,0) node[below=14pt] {龍} node[above=3pt] {};
+           \draw (4,0) node[below=25pt] {摔} node[above=3pt] {};
+           \draw (4,0) node[below=36pt] {到} node[above=3pt] {};
+           \draw (4,0) node[below=47pt] {地} node[above=3pt] {};
+           \draw (4,0) node[below=58pt] {上} node[above=3pt] {};     
+           
+         \draw (5,0) node[below=14pt] {龍开始} node[above=3pt] {};
+         \draw (5,0) node[below=24pt] {逼迫教会} node[above=3pt] {}; 
+                 
+       \draw (6,0) node[below=3pt] {} node[above=3pt] {号};
+        \draw (6,0) node[below=14pt] {教} node[above=13pt] {七};     
+        \draw (6,0) node[below=25pt] {会} node[above=13pt] {};  
+        \draw (6,0) node[below=36pt] {被} node[above=13pt] {};      
+        \draw (6,0) node[below=47pt] {提} node[above=13pt] {};  
+ 
+       \draw (7.5,0) node[below=14pt] {以色列被} node[above=3pt] {};
+       \draw (7.5,0) node[below=25pt] {保护三年半} node[above=3pt] {};                                
+       \draw (7.5,0) node[below=40pt] {龍逼迫妇人} node[above=3pt] {};
+       \draw (7.5,0) node[below=51pt] {其他的儿女} node[above=3pt] {};
+       
+       \draw (8,0) node[below=61pt] {} node[above=3pt] {獸};                   
+       \draw (8,0) node[below=72pt] {} node[above=13pt] {中};                                       
+       \draw (8,0) node[below=72pt] {} node[above=23pt] {海};                                              
+        \draw (8.5,0) node[below=61pt] {} node[above=3pt] {獸};                   
+       \draw (8.5,0) node[below=72pt] {} node[above=13pt] {中};                                       
+       \draw (8.5,0) node[below=72pt] {} node[above=23pt] {地};                                              
+
+       \draw (9,0) node[below=61pt] {} node[above=3pt] {羊};                   
+       \draw (9,0) node[below=72pt] {} node[above=13pt] {羔};                                       
+       \draw (9,0) node[below=72pt] {} node[above=23pt] {山};                                               
+        \draw (9,0) node[below=61pt] {} node[above=33pt] {安};                   
+       \draw (9,0) node[below=72pt] {} node[above=43pt] {錫};                                       
+    
+    
+        \draw (11,0) node[below=61pt] {} node[above=3pt] {音};                   
+       \draw (11,0) node[below=72pt] {} node[above=13pt] {声};                                       
+       \draw (11,0) node[below=72pt] {} node[above=23pt] {上};                                               
+        \draw (11,0) node[below=61pt] {} node[above=33pt] {天};      
+   
+       \draw (13,0) node[below=61pt] {} node[above=3pt] {割};                   
+       \draw (13,0) node[below=72pt] {} node[above=13pt] {收};                                       
+       \draw (13,0) node[below=72pt] {} node[above=23pt] {子};                                               
+        \draw (13,0) node[below=61pt] {} node[above=33pt] {人};      
+   
+ 
+       \draw (17,0) node[below=3pt] {天} node[above=3pt] {碗};                   
+       \draw (17,0) node[below=14pt] {使} node[above=13pt] {一};                                       
+      \draw (17,0) node[below=25pt] {收} node[above=23pt] {};                                               
+        \draw (17,0) node[below=36pt] {割} node[above=33pt] {};   
+        
+              
+       \draw (20,0) node[below=3pt] {哈} node[above=3pt] {碗};                                               
+       \draw (20,0) node[below=14pt] {米} node[above=13pt] {六};        
+       \draw (20,0) node[below=25pt] {吉} node[above=3pt] {};                                               
+       \draw (20,0) node[below=36pt] {多} node[above=13pt] {};     
+       \draw (20,0) node[below=47pt] {顿} node[above=3pt] {};                                               
+     
+       \draw (22,0) node[below=3pt] {大} node[above=3pt] {碗};                                               
+       \draw (22,0) node[below=14pt] {城} node[above=13pt] {七};     
+        \draw (22,0) node[below=25pt] {地} node[above=3pt] {};                                               
+       \draw (22,0) node[below=36pt] {震} node[above=13pt] {};   
+
+      \draw (22.5,0) node[below=3pt] {巴} node[above=3pt] {};                                               
+       \draw (22.5,0) node[below=14pt] {比} node[above=13pt] {};        
+       \draw (22.5,0) node[below=25pt] {伦} node[above=3pt] {};                                               
+       \draw (22.5,0) node[below=36pt] {倾} node[above=13pt] {};     
+        \draw (22.5,0) node[below=47pt] {倒} node[above=13pt] {};    
+ 
+ 
+        \draw (23,0) node[below=3pt] {羔} node[above=3pt] {};                                               
+       \draw (23,0) node[below=14pt] {羊} node[above=13pt] {};        
+       \draw (23.,0) node[below=25pt] {婚} node[above=3pt] {};                                               
+       \draw (23.,0) node[below=36pt] {宴} node[above=13pt] {};     
+
+        \draw (23.5,0) node[below=3pt] {白} node[above=3pt] {};                                               
+       \draw (23.5,0) node[below=14pt] {马} node[above=13pt] {};        
+       \draw (23.5,0) node[below=25pt] {得} node[above=3pt] {};                                               
+       \draw (23.5,0) node[below=36pt] {胜} node[above=13pt] {};     
+ 
+             
+       \draw (24,0) node[below=61pt] {} node[above=3pt] {年};                   
+       \draw (24,0) node[below=72pt] {} node[above=13pt] {禧};                                       
+       \draw (24,0) node[below=72pt] {} node[above=23pt] {千};                                               
+
+ 
+      \draw (25.5,0) node[below=3pt] {} node[above=3pt] {啟21};             
+       \draw (25.5,0) node[below=3pt] {} node[above=13pt] {地};
+       \draw (25.5,0) node[below=3pt] {} node[above=23pt] {新};
+       \draw (25.5,0) node[below=3pt] {} node[above=33pt] {天};       
+        \draw (25.5,0) node[below=3pt] {} node[above=43pt] {新};             
+\end{tikzpicture}
+\end{sidewaystable} 
+\end{changemargin}
+
+\newpage
+\begin{timeline}{1}{80}{2cm}{3cm}{12cm}{18cm}{62cm}{80cm}
+%\plainentry{0}{The October Revolution}
+\entry{1}{七印时期}
+\entry{1}{第一印：騎白馬的勝了又要勝，婦人懷孕（12：2）}
+%\plainentry{2}{The October Revolution}
+\plainentry{2}{七号时期}
+\entry{2}{第一到五号：大紅龍尾巴拖拉著天上星辰的三分之一，开始往地上摔}
+\entry{3}{第五号：“我就看見一個星從天落到地上（9：1）”。大紅龍尾巴拖拉著天上星辰的三分之一，摔在地上（12：3）}
+\entry{5}{第五到七号之间：龍要吞吃婦人将生的孩子。（12：4）地上教会开始受逼迫。天上就有了爭戰，龍和牠的使者一同被摔下去。}
+\entry{7}{第七号：婦人生了一個男孩子，是將來要用鐵杖轄管萬國的；她的孩子被提到神寶座那裡去了（12：5）--教会被提。}
+\plainentry{8}{七号与七碗之间}
+%\entry{5}{七号与七碗之间}
+\entry{12}{龍逼迫生男孩子的婦人。 婦人在曠野被養活一載，二載，半載。龍與婦人其餘的兒女爭戰（12：13）。海中獸任意而行42個月。與聖徒爭戰得勝；制伏各族、各民、各方、各國。地中獸如羊羔，迷惑地上的人，叫不拜獸像的人被殺害。}
+%\entry{9}{海中獸任意而行四十二個月。與聖徒爭戰得勝；制伏各族、各民、各方、各國}
+%\entry{9}{地中獸如同羊羔，迷惑住在地上的人，叫所有不拜獸像的人都被殺害。}
+\entry{15}{羔羊站在錫安山，十四萬四千人在寶座前，並在四活物和眾長老前唱歌}
+
+\entry{17}{一位天使傳福音給住在地上各國、各族、各方、各民；第二位天使宣告巴比倫大城傾倒；第三位天使鼓励聖徒忍耐，守神誡命和耶穌真道}
+%\entry{11}{第二位天使接著說：「叫萬民喝邪淫、大怒之酒的巴比倫大城傾倒了！傾倒了！」}
+%\entry{11}{第三位天使鼓励聖徒忍耐，守神誡命和耶穌真道}
+
+%\plainentry{7}{The October Revolution}
+
+\entry{19}{雲上坐著的人子，手裡拿著快鐮刀。 收割地上已經熟透了的莊稼。又有一位天使從天上的殿中出來，也拿著快鐮刀收取地上葡萄樹的果子}
+%\entry{12}{又有一位天使從天上的殿中出來，也拿著快鐮刀收取地上葡萄樹的果子}
+%\plainentry{14}{Stock Market Crash of 1929}
+%\plainentry{15}{Stock Market Crash of 1929}
+
+\entry{41}{七碗}
+%\plainentry{21}{D-Day}
+
+
+\entry{44}{第六位天使把碗倒在幼發拉底大河上，我又看見三個汙穢的靈，從龍口、獸口並假先知的口中出來。 出去到普天下眾王那裡，叫他們在神全能者的大日聚集爭戰。 那三個鬼魔便叫眾王聚集在一處，希伯來話叫做哈米吉多頓。}
+
+
+\entry{48}{玻璃海中勝了獸和獸的像並牠名字數目的人，唱神僕人摩西的歌和羔羊的歌}
+
+\entry{50}{群眾在天上大聲說：哈利路亞 }
+\entry{54}{羔羊婚筵}
+\entry{58}{騎白馬上的显现，天上的眾軍騎著白馬跟隨他。有利劍從他口中出來，可以擊殺列國。他必用鐵杖轄管他們，並要踹全能神烈怒的酒榨。}
+\plainentry{75}{撒旦被捆綁一千年，未受獸印記的同基督做王一千年}
+
+\entry{80}{千禧年}
+%\entry{23}{The Moon Landing}
+\entry{86}{那一千年完了，撒旦必從監牢裡被釋放}
+%\entry{98}{女人和七頭十角獸與羔羊爭戰，羔羊必勝過他們。十角與獸必恨這淫婦，使她冷落赤身，又要吃她的肉，用火將她燒盡。在一天之內，她的災殃要一齊來到}
+\plainentry{90}{永世}
+\entry{110}{白色的大寶座的审判}
+\entry{120}{新天新地}
+\entry{121}{女人和七頭十角獸與羔羊爭戰，羔羊必勝過他們。十角與獸必恨這淫婦，使她冷落赤身，又要吃她的肉，用火將她燒盡。在一天之內，她的災殃要一齊來到，就是死亡、悲哀、饑荒。她又要被火燒盡了}
+\end{timeline}
+
+
+
+

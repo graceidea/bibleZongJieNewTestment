@@ -1,0 +1,13 @@
+# Compiled source #
+###################
+*.aux
+*.log
+*.lof
+*.fls
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.mf
+*.fdb_latexmk
+
