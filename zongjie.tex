@@ -1,10 +1,5 @@
 %\documentclass{article}
-\documentclass[openany,hebrew,ctexart]{book}
-
-
-
-
-%\usepackage[UTF8, fontset=windows]{ctex}
+\documentclass[openany,hebrew,ctexart,dvipsnames,beamer]{book}
 \usepackage{titletoc}
 %\documentclass{cej}
 \usepackage{fontspec}
@@ -15,24 +10,30 @@
 \usepackage{fancyhdr}
 %\usepackage{comment}
 \usepackage{forest}
+\usepackage{footnote,enumitem}
 \usepackage{tabularx}
 \usepackage[paper=portrait,pagesize]{typearea}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{paracol}
 \usepackage[utf8]{inputenc}
-%\usepackage{enumitem}
-\usepackage{multirow}
-\usepackage{etoolbox}
-\usepackage{wrapfig,booktabs,threeparttable}
-%\usepackage[subpreambles]{standalone}
+
+\usepackage{multirow,tabularx}
+\usepackage{etoolbox,marginnote}
+\usepackage[absolute]{textpos}
+\usepackage{wrapfig,booktabs,threeparttable,colortbl,lipsum}
+
+\usepackage{graphicx}%figure
+\usepackage{sidecap}%figure
+
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 %\pgfplotsset{
  %   width=matrix\textwidth,
 %}
-\usepackage{tikz}
-\usetikzlibrary{snakes}
+\usepackage{tikz,tikz-qtree}
+\newcommand{\per}[1]{\parbox{2.5cm}{#1}}
+\usetikzlibrary{snakes,arrows,automata,arrows.meta}
 \usetikzlibrary{shapes.geometric,shapes.arrows,decorations.pathmorphing}
 \usetikzlibrary{matrix,chains,scopes,positioning,arrows,fit,shapes.symbols}
 \usetikzlibrary{calc,trees,positioning,decorations.pathreplacing,shapes}
@@ -63,6 +64,19 @@
   tuborg/.style={decorate},
   tubnode/.style={midway, right=2pt},
 }
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+
+\tikzset{snake arrow/.style=
+{->,
+decorate,
+decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}}
+}
 
 
 \newenvironment{changemargin}[2]{%
@@ -73,11 +87,12 @@
 \setlength{\listparindent}{\parindent}%
 \setlength{\itemindent}{\parindent}%
 \setlength{\parsep}{\parskip}%
+\setlength{\parindent}{0pt}
 }%
 \item[]}{\end{list}}
 
 
-\usepackage{color}
+\usepackage{color,xfrac,pdfpages,soul}
 \usepackage{mathtools}
 
 \usepackage{tabularx}
@@ -85,24 +100,22 @@
 \defaultfontfeatures{Mapping=tex-text}
 %\setmainfont[Ligatures=TeX]{Arial}
 \usepackage[textwidth=16cm]{geometry}
-\setlength{\parindent}{0pt}
 
 
-\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
-    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
-    text width=5em, text centered, rounded corners, minimum height=4em]
-\tikzstyle{line} = [draw, -latex']
-\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
-    minimum height=2em]
+
+
 
 
 \usepackage{amssymb}
-%\usepackage{array}
+\usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-
-
-
+%=======================NEW
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+%\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+%=======================
 
 
 
@@ -280,19 +293,36 @@
 \titlespacing{\section}{0.2pt}{\parskip}{-\parskip}
 \titlespacing{\subsection}{0.2pt}{\parskip}{-\parskip}
 \titlespacing{\subsubsection}{0.2pt}{\parskip}{-\parskip}
+%\titlespacing{\section}{-0.5pt}{\parskip}{-\parskip}
+%\titlespacing{\subsection}{-0.5pt}{\parskip}{-\parskip}
+%\titlespacing{\subsubsection}{-0.5pt}{\parskip}{-\parskip}
 
 %\titlespacing\section{0pt}{12pt plus 2pt minus 8pt}{0pt plus 2pt minus 8pt}
 \titlespacing\subsection{0pt}{12pt plus 2pt minus 8pt}{0pt plus 2pt minus 8pt}
 \titlespacing\subsubsection{0pt}{12pt plus 2pt minus 8pt}{0pt plus 2pt minus 8pt}
 
+
+
+
+
+
+
+
+
+
+\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+\pagestyle{fancy}
+\usepackage{lipsum}
+\usepackage{colortbl,longtable}
+
 \usepackage[toc,page]{appendix}
 \usepackage{caption}
 \usepackage{subcaption}
-%\usepackage{subfig}
+
 \usepackage{graphicx}
 \usepackage{smartdiagram}
-\usepackage{cjhebrew} 
-\usepackage{float}%table{H}
+%\usepackage{cjhebrew} 
+
 
 
 \titleclass{\subsubsubsection}{straight}[\subsection]
@@ -323,11 +353,13 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{3}
 \usepackage{verbatim}%\begin{document}\end{comment}
-\usepackage{colortbl}
+
 
 \usepackage{rotating}%sidewaystable}
 
-\usepackage{hyperref}
+%\usepackage{hyperref}
+\usepackage{floatrow}
+\usepackage[hidelinks]{hyperref}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -338,12 +370,55 @@
     pdfpagemode=FullScreen,
 }
 \urlstyle{same}
-\usepackage[absolute]{textpos}
+\usepackage{polyglossia} 
+\setdefaultlanguage{english}
+%\setotherlanguage{hebrew}
+%\newfontfamily\englishfont[Mapping=tex-text]{Latin Modern Roman}
+%%\newfontfamily\hebrewfont[Scale=MatchLowercase]{Ezra SIL}
+%\DeclareTextFontCommand{\ez}{\hebrewfont}
+\usepackage{cjhebrew}
+\usepackage{bookmark}
+%\usepackage[unicode]{hyperref}
+\pdfstringdefDisableCommands{%
+ \let\cjRL\@gobble % it can't be supported
+}
+
 
 \newenvironment{timeline}{\bgroup\par\noindent\textbf{timeline}\par%
 \[}{\]\egroup}
 
+%======================NEW
+\usepackage{lastpage}
+%\pagestyle{fancy}
+\fancyhf{}
+\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\usepackage{fancyhdr}
+\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+\pagestyle{fancy}
+\usepackage{lipsum}
+\usepackage{colortbl,longtable}
+%\usepackage[flushleft]{threeparttable}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\usepackage{xcolor}
 
+
+\definecolor{RED}{RGB}{34,139,34}
+\colorlet{RED}{red}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\usepackage{array,dcolumn,pgf,calc,makecell}
+\usetikzlibrary{arrows.meta,shapes}
+\usepackage{sectsty}
+\sectionfont{\bfseries\Large\raggedright}
+\usepackage{catchfilebetweentags}
+\usepackage{enumerate}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage[column=0]{cellspace}
+\setlength{\cellspacetoplimit}{6pt}
+\setlength{\cellspacebottomlimit}{\cellspacetoplimit}
+%\usesmartdiagramlibrary{additions}
+
+%\usepackage{beamerthememetropolis}
+%\usepackage{float}
 \begin{document}
 
 
@@ -381,7 +456,6 @@
 
 
 %\tableofcontents
-
 %===================附录=====
 %四福音 
 %======================
@@ -465,6 +539,9 @@
 \input{ZongJie/DiMingRenMing/RenMing}
 \end{appendices}
 
+
+%Claim #: 113490501000
+%Claim #: 113476172100
 
 
 
