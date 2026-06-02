@@ -1,0 +1,31 @@
+name: Deploy BookML Website
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-webbook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Install BookML & Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexml xindy
+          pip install bookml
+
+      - name: Build Web Book
+        run: |
+          bookml main.tex output_web/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output_web
