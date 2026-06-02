@@ -17,17 +17,15 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          # Targets the file inside your subfolder
-          root_file: Zongjie/zongjie.tex 
+          root_file: zongjie.tex
           latexmk_use_xelatex: true 
-          # Tells the compiler to look for resource files inside the Zongjie folder too
+          # 加上 -interaction=nonstopmode 確保編譯不會因為警告而中斷
           args: "-v -pdfxe -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -latexoption=-shell-escape"
 
       - name: Move PDF to deployment folder
         run: |
           mkdir public
-          # Moves the generated file from the subfolder to your web folder
-          mv Zongjie/zongjie.pdf public/index.pdf
+          mv zongjie.pdf public/index.pdf
 
       - name: Deploy to GitHub Pages Branch
         uses: peaceiris/actions-gh-pages@v4
