@@ -26,6 +26,8 @@ jobs:
         run: |
           mkdir public
           mv zongjie.pdf public/index.pdf
+          # Creates an automatic redirect page so the main link doesn't show a 404 error
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=index.pdf"></head><body><p>Redirecting to book PDF... If it does not load, <a href="index.pdf">click here</a>.</p></body></html>' > public/index.html
 
       - name: Deploy to GitHub Pages Branch
         uses: peaceiris/actions-gh-pages@v4
