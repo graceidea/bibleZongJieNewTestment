@@ -1,4 +1,4 @@
-name: Deploy BookML Website
+name: Build and Deploy LaTeX Book
 on:
   push:
     branches:
@@ -8,24 +8,29 @@ permissions:
   contents: write
 
 jobs:
-  build-webbook:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install BookML & Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y latexml xindy
-          pip install bookml
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          # Targets the file inside your subfolder
+          root_file: Zongjie/zongjie.tex 
+          latexmk_use_xelatex: true 
+          # Tells the compiler to look for resource files inside the Zongjie folder too
+          args: "-v -pdfxe -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -latexoption=-shell-escape"
 
-      - name: Build Web Book
+      - name: Move PDF to deployment folder
         run: |
-          bookml main.tex output_web/
+          mkdir public
+          # Moves the generated file from the subfolder to your web folder
+          mv Zongjie/zongjie.pdf public/index.pdf
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages Branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./output_web
+          publish_dir: ./public
