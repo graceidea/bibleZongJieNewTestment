@@ -1,4 +1,5 @@
 name: Build and Deploy LaTeX Book
+
 on:
   push:
     branches:
@@ -10,16 +11,17 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5 # Upgraded to v5 to fix Node.js deprecation warning
 
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
+        uses: xu-cheng/latex-action@v4 # Upgraded to v4 for Node.js 24 compatibility
         with:
           root_file: zongjie.tex
-          latexmk_use_xelatex: true 
-          # 加上 -interaction=nonstopmode 確保編譯不會因為警告而中斷
+          latexmk_use_xelatex: true
+          # Added -interaction=nonstopmode to ensure build doesn't halt on warning prompts
           args: "-v -pdfxe -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -latexoption=-shell-escape"
 
       - name: Move PDF to deployment folder
@@ -30,7 +32,7 @@ jobs:
           echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=index.pdf"></head><body><p>Redirecting to book PDF... If it does not load, <a href="index.pdf">click here</a>.</p></body></html>' > public/index.html
 
       - name: Deploy to GitHub Pages Branch
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v4 # Keeps v4 (already handles Node runtime upgrades)
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
