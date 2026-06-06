@@ -4,7 +4,8 @@
 %\setlength{\TPVertModule}{40mm}
 \begin{changemargin}{-1cm}{-1cm}
 \begin{sidewaystable} % <-- HERE
-\begin{tikzpicture}[thick,snake=zigzag, line before snake = 5mm, line after snake = 5mm]
+%\begin{tikzpicture}[thick,snake=zigzag, line before snake = 5mm, line after snake = 5mm]
+\begin{tikzpicture}[thick, decoration={zigzag, pre length=5mm, post length=5mm}]
 %draw arrow
 \draw [green, ->          ] (0,8.0) -- (1,8.0);
 \draw [blue,  -stealth    ] (0,7.5) -- (1,7.5) node [right] {stealth};
@@ -17,9 +18,10 @@
      % draw horizontal line   
     %  \draw (-1,0) -- (22,0); 
        \draw (-0.5,0) -- (2,0);     
-       \draw[snake] (2,0) -- (4,0);  
+      % \draw[snake] (2,0) -- (4,0);
+        \draw [decorate, decoration={snake}]  (2,0) -- (4,0);
        \draw (4,0) -- (12,0);          
-       \draw[snake] (12,0) -- (14,0);  
+       \draw [decorate, decoration={snake}]  (12,0) -- (14,0);  
        \draw (14,0) -- (25.5,0);                 
       % draw vertical lines
        \foreach \x in {0,1,2,4,6,17,22,24,25.5}

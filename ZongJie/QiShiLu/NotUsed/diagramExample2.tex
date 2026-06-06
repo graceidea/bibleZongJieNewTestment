@@ -1,11 +1,18 @@
 
 \begin{changemargin}{-1cm}{-1cm}
 \begin{sidewaystable} % <-- HERE
-\begin{tikzpicture}[thick,snake=zigzag, line before snake = 5mm, line after snake = 5mm]
-
+\begin{tikzpicture}[
+  thick, 
+  decoration={zigzag, pre length=5mm, post length=5mm}, 
+  scale=0.7, 
+  transform shape
+]
+%\begin{tikzpicture}[thick,snake=zigzag, line before snake = 5mm, line after snake = 5mm]
+%\begin{tikzpicture}[thick, decoration={zigzag, pre length=5mm, post length=5mm}]
      % draw horizontal line   
        \draw (-0.5,0) -- (19,0); 
-      \draw [snake] (19,0) -- (21,0);
+       %\draw [snake] (19,0) -- (21,0);
+       \draw [decorate, decoration={snake}] (19,0) -- (21,0);
       \draw (21,0) -- (25.5,0);                            
       \draw [dashed] (22,0) -- (25.5,0);
     % draw vertical lines
@@ -202,12 +209,21 @@
          
 %\subsection{时间顺序总图}
 \begin{changemargin}{-1cm}{-1cm}
-\begin{sidewaystable} % <-- HERE
-\begin{tikzpicture}[thick,snake=zigzag, line before snake = 5mm, line after snake = 5mm]
+  \begin{sidewaystable} % <-- HERE
+   \begin{tikzpicture}[
+  thick, 
+  decoration={zigzag, pre length=5mm, post length=5mm}, 
+  scale=0.7, 
+  transform shape
+]
+ % \begin{tikzpicture}[thick, decoration={zigzag, pre length=5mm, post length=5mm}]
+ %   \useasboundingbox (0,0) rectangle (1cm,1cm); % Forces a non-zero baseline size
+   % [thick,snake=zigzag, line before snake = 5mm, line after snake = 5mm]
 
      % draw horizontal line   
        \draw (-0.5,0) -- (19,0); 
-      \draw [snake] (19,0) -- (21,0);
+       %\draw [snake] (19,0) -- (21,0);
+       \draw [decorate, decoration={snake}] (19,0) -- (21,0);
       \draw (21,0) -- (25.5,0);                            
       \draw [dashed] (22,0) -- (25.5,0);
     % draw vertical lines
