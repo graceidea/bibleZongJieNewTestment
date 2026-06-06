@@ -1,487 +1,101 @@
-%\documentclass{article}
-\documentclass[openany,hebrew,ctexart,dvipsnames,beamer]{book}
-\usepackage{titletoc}
-%\documentclass{cej}
-\usepackage{fontspec}
-\usepackage{xeCJK} %调用 xeCJK 宏包
-%\setmainfont{BiauKai} %設定中文字型
-%\setCJKmainfont{SimSun} %设置 CJK 主字体为 SimSun （宋体）
-\setCJKmainfont{Noto Sans CJK TC}
-\usepackage{fancyhdr}
-%\usepackage{comment}
-\usepackage{forest}
-\usepackage{footnote,enumitem}
-\usepackage{tabularx}
-\usepackage[paper=portrait,pagesize]{typearea}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{paracol}
-\usepackage[utf8]{inputenc}
-
-\usepackage{multirow,tabularx}
-\usepackage{etoolbox,marginnote}
-\usepackage[absolute]{textpos}
-\usepackage{wrapfig,booktabs,threeparttable,colortbl,lipsum}
-
-\usepackage{graphicx}%figure
-\usepackage{sidecap}%figure
-
-\usepackage{pgfplots}
-\usepackage{pgfplotstable}
-%\pgfplotsset{
- %   width=matrix\textwidth,
-%}
-\usepackage{tikz,tikz-qtree}
-\newcommand{\per}[1]{\parbox{2.5cm}{#1}}
-\usetikzlibrary{snakes,arrows,automata,arrows.meta}
-\usetikzlibrary{shapes.geometric,shapes.arrows,decorations.pathmorphing}
-\usetikzlibrary{matrix,chains,scopes,positioning,arrows,fit,shapes.symbols}
-\usetikzlibrary{calc,trees,positioning,decorations.pathreplacing,shapes}
-\tikzset{
->=stealth',
-  punktchain/.style={
-    rectangle, 
-    rounded corners, 
-    % fill=black!10,
-    draw=black, very thick,
-    text width=10em, 
-    minimum height=3em, 
-    text centered, 
-    on chain},
-  line/.style={draw, thick, <-},
-  element/.style={
-    tape,
-    top color=white,
-    bottom color=blue!50!black!60!,
-    minimum width=6em,
-    draw=blue!40!black!90, very thick,
-    text width=10em, 
-    minimum height=3.5em, 
-    text centered, 
-    on chain},
-  every join/.style={->, thick,shorten >=1pt},
-  decoration={brace},
-  tuborg/.style={decorate},
-  tubnode/.style={midway, right=2pt},
-}
-\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
-    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
-    text width=5em, text centered, rounded corners, minimum height=4em]
-\tikzstyle{line} = [draw, -latex']
-\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
-    minimum height=2em]
-
-\tikzset{snake arrow/.style=
-{->,
-decorate,
-decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}}
-}
-
-
-\newenvironment{changemargin}[2]{%
-\begin{list}{}{%
-\setlength{\topsep}{-2pt}%
-\setlength{\leftmargin}{20pt}%
-\setlength{\rightmargin}{20pt}%
-\setlength{\listparindent}{\parindent}%
-\setlength{\itemindent}{\parindent}%
-\setlength{\parsep}{\parskip}%
-\setlength{\parindent}{0pt}
-}%
-\item[]}{\end{list}}
-
-
-\usepackage{color,xfrac,pdfpages,soul}
-\usepackage{mathtools}
-
-\usepackage{tabularx}
-\parindent=0pt
-\defaultfontfeatures{Mapping=tex-text}
-%\setmainfont[Ligatures=TeX]{Arial}
-\usepackage[textwidth=16cm]{geometry}
-
-
-
-
-
-
-\usepackage{amssymb}
-\usepackage{array}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-%=======================NEW
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-%\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
-%\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-%=======================
-
-
-
-
-
-
-\DeclareCaptionLabelSeparator{emdash}{~--- }
-\captionsetup[figure]{labelsep=emdash,font=onehalfspacing,position=bottom}
-\captionsetup{%
-    singlelinecheck=off,
-    skip=2pt,
-    justification=centering,
-}
-
-%我们可以通过 setspace宏包提供的命令来调整行间距。比如在导言区添加如下内容，可以将行距设置为字号的 1.5 倍：
-\usepackage{setspace}
-\onehalfspacing
- %在页眉左边写上我的名字，中间写上今天的日期，右边写上我的电话；页脚的正中写上页码；页眉和正文之间有一道宽为 0.4pt 的横线分割，可以在导言区加上如下几行
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-%\lhead{\author}
-%\lhead{\thepage}
-%\chead{\date}
-\chead{\thepage}
-\rhead{新约总结}
-\lfoot{}
-%\cfoot{\thepage}
-\rfoot{}
-\renewcommand{\headrulewidth}{0.2pt}
-\renewcommand{\headwidth}{\textwidth}
-\renewcommand{\footrulewidth}{0pt}
-
-
-%\title{你好，world!}
-%\author{Liam}
-%\date{}
-
-
-%\renewcommand\thesection{\Roman{section}}
-%\renewcommand\thesubsection{\Alph{subsection}}
-
-\makeatletter
-% #1 - comparator
-% #2 - token list to sort
-\newcommand\sort[2]{%
-        \ifstrempty{#2}
-        {}% else
-        {%
-                \sort@begin#1{}#2\sort@s\sort@begin
-        }%
-}
-
-% helpers
-\def\sort@s{\sort@s}
-\def\ifsort@s#1{%
-        \ifx\sort@s#1%
-                \expandafter\@firstoftwo
-        \else
-                \expandafter\@secondoftwo
-        \fi
-}
-% #1 - comparator
-% #2 - tokens processed so far
-% #3 - smallest token so far
-% #4 - rest of the list
-\def\sort@begin#1#2#3#4\sort@begin{%
-        \ifsort@s{#4}
-        {%
-                \sortend{#3}%
-                \sort#1{#2}%
-        }% else
-        {%
-                \sort@go#1{#2}{#3}#4\sort@go
-        }%
-}
-
-%     #1 - comparator
-% #2 - tokens processed so far
-% #3 - smallest token so far
-% #4 - token under consideration
-% #5 - rest of the list
-\def\sort@go#1#2#3#4#5\sort@go{%
-        #1{#3}{#4}{\sort@output#1{#2}{#5}}%
-}
-% #1 - comparator
-% #2 - tokens processed so far
-% #3 - rest of the list
-% #4 - smaller of the two tokens
-% #5 - larger of the two tokens
-\def\sort@output#1#2#3#4#5{%
-        \ifsort@s{#3}
-        {%
-                \sortoutput{#4}%
-                \sort#1{#2{#5}}%
-        }% else
-        {%
-                \sort@begin#1{#2{#5}}{#4}#3\sort@begin
-        }%
-}
-
-\def\sort@numlt#1#2#3{%
-        \ifnumcomp{#1}<{#2}
-        {#3{#1}{#2}}% else
-        {#3{#2}{#1}}%
-}
-\def\sort@numgt#1#2#3{%
-        \ifnumcomp{#1}>{#2}
-        {#3{#1}{#2}}% else
-        {#3{#2}{#1}}%
-}
-
-\def\sort@alpha#1#2#3{%
-        \ifnumcomp{\pdfstrcmp{#1}{#2}}<{0}
-        {#3{#1}{#2}}% else
-        {#3{#2}{#1}}%
-}
-
-\def\sort@firstcol#1#2{%
-    \expandafter\expandafter\expandafter
-        \sort@fc@helper\expandafter#1#2#1#2%
-}
-
-\def\sort@fc@helper#1&#2\\#3&#4\\#5#6#7{%
-    \ifnumcomp{\pdfstrcmp{#1}{#3}}<{0}
-    {#7{#5}{#6}}% else
-    {#7{#6}{#5}}%
-}
-
-\newcommand*\sortnumlt{\sort\sort@numlt}
-\newcommand*\sortnumgt{\sort\sort@numgt}
-\newcommand*\sortalpha{\sort\sort@alpha}
-\newcommand*\sortfirstcol{\sort\sort@firstcol}
-\makeatother
-
-% Change these to change out the sort outputs.
-\newcommand*\sortoutput[1]{#1}
-\newcommand*\sortend[1]{#1}
-
-
-
-
-
-
-
-\KOMAoptions{paper=portrait,pagesize}
-\recalctypearea
-%设置页边距，推荐使用 geometry 宏包。可以在这里查看它的说明文档
-\usepackage{geometry}
-\geometry{papersize={17cm,15cm}}
-\geometry{left=1.5cm,right=2.cm,top=1.cm,bottom=1cm}
-%\usepackage[margin=0.5in]{geometry}
-\addtolength{\oddsidemargin}{-.15075in}
-\addtolength{\evensidemargin}{-.15075in}
-\addtolength{\textwidth}{0.75in}
-
-\addtolength{\topmargin}{0.275in}
-\addtolength{\textheight}{1.75in}
-\geometry{
- a4paper,
- total={190mm,257mm},
- left=15mm,
- top=20mm,
- }
- 
- %4 level 
-\usepackage{titlesec}
-\setcounter{secnumdepth}{4}
-\titleformat{\paragraph}
-{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-\titlespacing*{\paragraph}
-{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
- 
-\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}} 
-
-\titlespacing{\section}{0.2pt}{\parskip}{-\parskip}
-\titlespacing{\subsection}{0.2pt}{\parskip}{-\parskip}
-\titlespacing{\subsubsection}{0.2pt}{\parskip}{-\parskip}
-%\titlespacing{\section}{-0.5pt}{\parskip}{-\parskip}
-%\titlespacing{\subsection}{-0.5pt}{\parskip}{-\parskip}
-%\titlespacing{\subsubsection}{-0.5pt}{\parskip}{-\parskip}
-
-%\titlespacing\section{0pt}{12pt plus 2pt minus 8pt}{0pt plus 2pt minus 8pt}
-\titlespacing\subsection{0pt}{12pt plus 2pt minus 8pt}{0pt plus 2pt minus 8pt}
-\titlespacing\subsubsection{0pt}{12pt plus 2pt minus 8pt}{0pt plus 2pt minus 8pt}
-
-
-
-
-
-
-
-
-
-
-\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
-\pagestyle{fancy}
-\usepackage{lipsum}
-\usepackage{colortbl,longtable}
-
-\usepackage[toc,page]{appendix}
-\usepackage{caption}
-\usepackage{subcaption}
-
-\usepackage{graphicx}
-\usepackage{smartdiagram}
-%\usepackage{cjhebrew} 
-
-
-
-\titleclass{\subsubsubsection}{straight}[\subsection]
-\newcounter{subsubsubsection}[subsubsection]
-\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
-\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
-\titleformat{\subsubsubsection}
-  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
-\titlespacing*{\subsubsubsection}
-{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-\makeatletter
-\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
-  {3.25ex \@plus1ex \@minus.2ex}%
-  {-1em}%
-{\normalfont\normalsize\bfseries}}
-\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
-  {3.25ex \@plus1ex \@minus .2ex}%
-  {-1em}%
-  {\normalfont\normalsize\bfseries}}
-\def\toclevel@subsubsubsection{4}
-\def\toclevel@paragraph{5}
-\def\toclevel@paragraph{6}
-\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
-\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
-\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
-\makeatother
-
-\setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{3}
-\usepackage{verbatim}%\begin{document}\end{comment}
-
-
-\usepackage{rotating}%sidewaystable}
-
-\usepackage{floatrow}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,
-    urlcolor=cyan,
-    pdftitle={Sharelatex Example},
-    bookmarks=true,
-    % --- Add the 3 lines below to control the bookmarks ---
-    bookmarksopen=true,       % Allows the bookmark tree to be expanded
-    bookmarksopenlevel=0,      % Shows ONLY level-0 directories by default
-    pdfpagemode=UseOutlines,   % Displays bookmarks automatically on open instead of full screen
-}
-
-
-\urlstyle{same}
-\usepackage{polyglossia} 
-\setdefaultlanguage{english}
-%\setotherlanguage{hebrew}
-%\newfontfamily\englishfont[Mapping=tex-text]{Latin Modern Roman}
-%%\newfontfamily\hebrewfont[Scale=MatchLowercase]{Ezra SIL}
-%\DeclareTextFontCommand{\ez}{\hebrewfont}
+% 🌟 核心修复 1：在最开头直接传递参数，彻底消除 Option Clash 报错
+\PassOptionsToPackage{hidelinks,unicode}{hyperref}
+\documentclass[openany,dvipsnames]{book} 
+
+\usepackage{titletoc} 
+\usepackage{fontspec} 
+\usepackage{xeCJK} 
+\setCJKmainfont{Noto Sans CJK TC} 
 \usepackage{cjhebrew}
+\usepackage{fancyhdr} 
+\usepackage{forest} 
+\usepackage{footnote}
+\usepackage{enumitem} 
+\usepackage{tabularx} 
+\usepackage[paper=portrait,pagesize]{typearea} 
+\usepackage{caption} 
+\usepackage{subcaption} 
+\usepackage{paracol} 
+\usepackage{multirow} 
+\usepackage{etoolbox,marginnote} 
+\usepackage[absolute]{textpos} 
+\usepackage{wrapfig,booktabs,threeparttable,colortbl,lipsum} 
+\usepackage{graphicx}
+\usepackage{sidecap}
+\usepackage{rotating} 
+
+\usepackage{pgfplots} 
+\usepackage{pgfplotstable} 
+\pgfplotsset{compat=1.18} 
+
+\usepackage{float}
+
+% 🌟 核心修复 2：安全加载 hyperref 并配合 bookmark 宏包实现侧边栏按需动态展开
+\usepackage{hyperref} 
 \usepackage{bookmark}
-%\usepackage[unicode]{hyperref}
-\pdfstringdefDisableCommands{%
- \let\cjRL\@gobble % it can't be supported
+\bookmarksetup{
+  numbered,          % 书签显示章节编号
+  open=true,         % 自动打开 PDF 的侧边栏书签面板
+  openlevel=0        % 🌟 只展示到“章”级别（Chapter），点击“章”才会展开底下的“节”
 }
 
 
-\newenvironment{timeline}{\bgroup\par\noindent\textbf{timeline}\par%
-\[}{\]\egroup}
-
-%======================NEW
-\usepackage{lastpage}
-%\pagestyle{fancy}
-\fancyhf{}
-\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
-\usepackage{fancyhdr}
-\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
-\pagestyle{fancy}
-\usepackage{lipsum}
-\usepackage{colortbl,longtable}
-%\usepackage[flushleft]{threeparttable}
-\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
-\usepackage{xcolor}
 
 
-\definecolor{RED}{RGB}{34,139,34}
-\colorlet{RED}{red}
-\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
-\usepackage{array,dcolumn,pgf,calc,makecell}
-\usetikzlibrary{arrows.meta,shapes}
-\usepackage{sectsty}
-\sectionfont{\bfseries\Large\raggedright}
-\usepackage{catchfilebetweentags}
-\usepackage{enumerate}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-\usepackage[column=0]{cellspace}
-\setlength{\cellspacetoplimit}{6pt}
-\setlength{\cellspacebottomlimit}{\cellspacetoplimit}
-%\usesmartdiagramlibrary{additions}
 
-%\usepackage{beamerthememetropolis}
-%\usepackage{float}
-\begin{document}
+\usepackage{tikz,tikz-qtree} 
 
+% PERMANENT FIX: No brackets used here, completely immune to the copy-paste bug
+\newcommand{\per}[1]{\parbox{2.5cm}{#1}} 
+\let\subsubsubsection\paragraph
+\def\sortfirstcol#1{#1}
 
-%============================================
-%    目錄,圖目錄,表目錄
-%============================================
-\renewcommand\contentsname{目錄}
-\renewcommand\listfigurename{圖目錄}
-\renewcommand\listtablename{表目錄}
-\tableofcontents
-\thispagestyle{empty}
-\listoffigures
-\thispagestyle{empty}
-\listoftables
-\thispagestyle{empty}
+% TikZ Libraries
+\usetikzlibrary{arrows,automata,arrows.meta} 
+\usetikzlibrary{shapes.geometric,shapes.arrows,decorations.pathmorphing} 
+\usetikzlibrary{matrix,chains,scopes,positioning,fit,shapes.symbols} 
+\usetikzlibrary{calc,trees,decorations.pathreplacing} 
 
+% TikZ engine patch to pass internal legacy 'snakes' check
 \makeatletter
-\let\origsection\section
-\renewcommand\section{\@ifstar{\starsection}{\nostarsection}}
-\newcommand\nostarsection[1]
-{\sectionprelude\origsection{#1}\sectionpostlude}
-\newcommand\starsection[1]
-{\sectionprelude\origsection*{#1}\sectionpostlude}
-\newcommand\sectionprelude{%
-  \vspace{.5em}
-}
-\newcommand\sectionpostlude{%
-  \vspace{0em}
+\expandafter\def\csname tikz@library@snakes@loaded\endcsname{}
+\tikzset{
+  line before snake/.style={pre=lineto, pre length=#1},
+  line after snake/.style={post=lineto, post length=#1}
 }
 \makeatother
 
+% Style Definitions
+\tikzset{ 
+    >=stealth', 
+    punktchain/.style={rectangle, rounded corners, draw=black, very thick, text width=10em, minimum height=3em, text centered, on chain}, 
+    line/.style={draw, thick, <-}, 
+    element/.style={tape, top color=white, bottom color=blue!50!black!60!, minimum width=6em, draw=blue!40!black!90, very thick, text width=10em, minimum height=3.5em, text centered, on chain}, 
+    every join/.style={->, thick,shorten >=1pt}, 
+    decoration={brace}, 
+    tuborg/.style={decorate}, 
+    tubnode/.style={midway, right=2pt},
+    decision/.style={diamond, draw, fill=blue!20, text width=4.5em, text badly centered, inner sep=0pt},
+    block/.style={rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em},
+    tikzline/.style={draw, -latex'}, 
+    cloud/.style={draw, ellipse, fill=red!20, minimum height=2em},
+    snake arrow/.style={->, decorate, decoration={snake, amplitude=.4mm, segment length=2mm, post length=1mm}}
+} 
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
 
-\begin{titlepage}
-    \centering
-    \vspace*{2cm}
-    
-    % English Title
-    {\Huge \bfseries NEW TESTAMENT SUMMARY \par}
-    \vspace{0.5cm}
-    
-    % Chinese Title
-    {\titlefont \Huge \bfseries 新約聖經總結 \par}
-    \vspace{2cm}
-    
-    % Simple Minimalist Cartoon Cross/Book placeholder using LaTeX symbols
-    {\color{orange}\rule{0.4\textwidth}{1.5pt}} \\
-    \vspace{1cm}
-    {\Huge $\dagger$} \\
-    \vspace{1cm}
-    {\color{orange}\rule{0.4\textwidth}{1.5pt}} \\
-    
-    \vfill
-    
-    % Author Name
-    {\Large \bfseries By GRACE IDEA \par}
-    \vspace*{2cm}
-    
-\end{titlepage}
-
+\begin{document}
+）
+\setcounter{tocdepth}{0} % 🌟 核心修改 3：在书稿纸张开头打印整本书的完整总目录
+\tableofcontents% 🌟 核心修改 3：在书稿纸张开头打印整本书的完整总目录
 
 
 %\tableofcontents
