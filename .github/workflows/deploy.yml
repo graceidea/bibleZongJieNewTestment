@@ -16,12 +16,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5 # Upgraded to v5 to fix Node.js deprecation warning
 
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v4 # Upgraded to v4 for Node.js 24 compatibility
+      - name: Compile LaTeX document - Pass 1
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: zongjie.tex
           latexmk_use_xelatex: true
-          # Added -interaction=nonstopmode to ensure build doesn't halt on warning prompts
+          args: "-v -pdfxe -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -latexoption=-shell-escape"
+
+      - name: Compile LaTeX document - Pass 2 (Regenerate Refs & ToC)
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: zongjie.tex
+          latexmk_use_xelatex: true
           args: "-v -pdfxe -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -latexoption=-shell-escape"
 
       - name: Move PDF to deployment folder
