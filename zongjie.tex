@@ -357,18 +357,22 @@ decoration={snake,amplitude=.4mm,segment length=2mm,post length=1mm}}
 
 \usepackage{rotating}%sidewaystable}
 
-%\usepackage{hyperref}
 \usepackage{floatrow}
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=cyan,
     pdftitle={Sharelatex Example},
     bookmarks=true,
-    pdfpagemode=FullScreen,
+    % --- Add the 3 lines below to control the bookmarks ---
+    bookmarksopen=true,       % Allows the bookmark tree to be expanded
+    bookmarksopenlevel=0,      % Shows ONLY level-0 directories by default
+    pdfpagemode=UseOutlines,   % Displays bookmarks automatically on open instead of full screen
 }
+
+
 \urlstyle{same}
 \usepackage{polyglossia} 
 \setdefaultlanguage{english}
