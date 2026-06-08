@@ -40,6 +40,7 @@
   numbered,          % 书签显示章节编号
   open=true,         % 自动打开 PDF 的侧边栏书签面板
   openlevel=-1        % 🌟 只展示到“章”级别（Chapter），点击“章”才会展开底下的“节”
+  depth=4         % 🌟 Ensures lower levels (sections/subsections) are actually generated in the PDF outline tree
 }
 
 
@@ -107,31 +108,20 @@
 \include{ZongJie/SiFuYin/shengping/part1}%施洗約翰的生平
 \include{ZongJie/SiFuYin/shengping/part2}%耶穌的預備期OK
 \include{ZongJie/SiFuYin/shengping/part3}%耶穌的服事OK
-
-
 \include{ZongJie/SiFuYin/shengping/zuihouxingcheng/sunday1} %耶稣的最后行程受死復活OK %NOT USED
 \include{ZongJie/SiFuYin/shengping/zuihouxingcheng/monday}
-%NOT USED
-
 \include{ZongJie/SiFuYin/shengping/zuihouxingcheng/tuesday1}
 \include{ZongJie/SiFuYin/shengping/zuihouxingcheng/wensday}
 \include{ZongJie/SiFuYin/shengping/zuihouxingcheng/friday}
 \include{ZongJie/SiFuYin/shengping/zuihouxingcheng/sunday2}
-
-%附錄
 \include{ZongJie/SiFuYin/part9}%附錄：法利賽人的错误/被耶穌誇獎的人,四個瑪利亞，舊約預言應驗
 %四福音大纲
 %被耶穌誇獎的人,四個瑪利亞，法利賽人求神蹟,哀哭切齿,舊約預言應驗，安息日所行的七件神迹
 
 \include{ZongJie/SiFuYin/part7}%神蹟ok
 \include{ZongJie/SiFuYin/part8}%耶穌的講論，按照時間順序ok
-
-
 \include{ZongJie/SiFuYin/part6}%耶穌的講論，按照內容分類順序
-
 \include{ZongJie/SiFuYin/shengping/miracle}
-
-  
 \include{ZongJie/SiFuYin/YLBeijing}
 
 
@@ -145,13 +135,13 @@
 % 保罗书信
 %==========================
 \input{ZongJie/BaoLuoShuXin/BaoLuoShuXinZongJie}%書信總結
-
 \input{ZongJie/BaoLuoShuXin/YaXiYaJiaoHui}%亞細亞教會
 \input{ZongJie/BaoLuoShuXin/JiaLaTai}%加拉太教會
 \input{ZongJie/BaoLuoShuXin/MaQiDun}%馬其頓
 \input{ZongJie/BaoLuoShuXin/ShuXinDaGang}
 %\input{ZongJie/BaoLuoShuXin/BaoLuoShuXin}%罗马教會
 \input{ZongJie/BaoLuoShuXin/topic}% 書信專題:聖靈恩賜/救恩/教會生活
+
 %==========================
 % 普通书信
 %==========================
