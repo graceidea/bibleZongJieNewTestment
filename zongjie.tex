@@ -33,10 +33,13 @@
 % 🌟 核心修复 2：安全加载 hyperref 并配合 bookmark 宏包实现侧边栏按需动态展开
 \usepackage{hyperref} 
 \usepackage{bookmark}
+\hypersetup{
+    pdfpagemode=UseOutlines % 核心：通知网页浏览器自动打开左侧侧边栏面板
+}
 \bookmarksetup{
   numbered,          % 书签显示章节编号
   open=true,         % 自动打开 PDF 的侧边栏书签面板
-  openlevel=0        % 🌟 只展示到“章”级别（Chapter），点击“章”才会展开底下的“节”
+  openlevel=-1        % 🌟 只展示到“章”级别（Chapter），点击“章”才会展开底下的“节”
 }
 
 
@@ -93,7 +96,6 @@
   \item[]}{\end{list}}
 
 \begin{document}
-）
 \setcounter{tocdepth}{0} % 🌟 核心修改 3：在书稿纸张开头打印整本书的完整总目录
 \tableofcontents% 🌟 核心修改 3：在书稿纸张开头打印整本书的完整总目录
 
