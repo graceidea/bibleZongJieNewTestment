@@ -40,7 +40,7 @@
   numbered,          % 书签显示章节编号
   open=true,         % 自动打开 PDF 的侧边栏书签面板
   openlevel=-1        % 🌟 只展示到“章”级别（Chapter），点击“章”才会展开底下的“节”
-  depth=4         % 🌟 Ensures lower levels (sections/subsections) are actually generated in the PDF outline tree
+  depth=3         % 🌟 Ensures lower levels (sections/subsections) are actually generated in the PDF outline tree
 }
 
 
@@ -99,7 +99,7 @@
 \begin{document}
 \setcounter{tocdepth}{0} % 🌟 核心修改 3：在书稿纸张开头打印整本书的完整总目录
 \tableofcontents% 🌟 核心修改 3：在书稿纸张开头打印整本书的完整总目录
-
+\setcounter{tocdepth}{3}
 
 %\tableofcontents
 %===================附录=====
