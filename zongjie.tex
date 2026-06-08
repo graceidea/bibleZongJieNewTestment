@@ -31,15 +31,24 @@
 \usepackage{float}
 
 % 🌟 核心修复 2：安全加载 hyperref 并配合 bookmark 宏包实现侧边栏按需动态展开
-\usepackage{hyperref} 
-\usepackage{bookmark}
+\usepackage[hidelinks]{hyperref} 
+
 \hypersetup{
-    pdfpagemode=UseOutlines % 核心：通知网页浏览器自动打开左侧侧边栏面板
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Sharelatex Example},
+    bookmarks=true,
+    bookmarksdepth=3,      % Go down to subsubsection level
+    bookmarksnumbered=true, % Show section numbers in bookmarks
+    pdfpagemode=UseOutlines
 }
+\usepackage{bookmark}
 \bookmarksetup{
-  numbered,          % 书签显示章节编号
+  numbered=true,          % 书签显示章节编号
   open=true,         % 自动打开 PDF 的侧边栏书签面板
-  openlevel=-1        % 🌟 只展示到“章”级别（Chapter），点击“章”才会展开底下的“节”
+  openlevel=0,        % 🌟 只展示到“章”级别（Chapter），点击“章”才会展开底下的“节”
   depth=3         % 🌟 Ensures lower levels (sections/subsections) are actually generated in the PDF outline tree
 }
 
@@ -97,9 +106,20 @@
   \item[]}{\end{list}}
 
 \begin{document}
-\setcounter{tocdepth}{0} % 🌟 核心修改 3：在书稿纸张开头打印整本书的完整总目录
-\tableofcontents% 🌟 核心修改 3：在书稿纸张开头打印整本书的完整总目录
+% 🌟 FORCE global depth to 3 so the sidebar captures ALL sections, subsections, and subsubsections
 \setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4} 
+
+% 1. Set depth to 0 right BEFORE the printed TOC runs
+\pretocmd{\tableofcontents}{\setcounter{tocdepth}{0}}{}{}
+% 2. Reset depth to 3 right AFTER the printed TOC finishes (using \apptocmd)
+\apptocmd{\tableofcontents}{\setcounter{tocdepth}{3}}{}{}
+
+\tableofcontents % Prints chapters only, but keeps your sidebar generation fully alive!
+
+%\setcounter{tocdepth}{0} % 🌟 核心修改 3：在书稿纸张开头打印整本书的完整总目录
+%\tableofcontents% 🌟 核心修改 3：在书稿纸张开头打印整本书的完整总目录
+%\setcounter{tocdepth}{3}
 
 %\tableofcontents
 %===================附录=====
