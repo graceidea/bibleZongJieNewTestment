@@ -49,8 +49,8 @@
 \usepackage{bookmark}
 \bookmarksetup{
   numbered=true,          % 书签显示章节编号
-  open=true,         % 自动打开 PDF 的侧边栏书签面板
-  openlevel=1,        % 🌟 只展示到“章”级别（Chapter），点击“章”才会展开底下的“节”
+  open=false,         % 自动打开 PDF 的侧边栏书签面板
+  openlevel=0,        % 🌟 只展示到“章”级别（Chapter），点击“章”才会展开底下的“节”
   depth=3         % 🌟 Ensures lower levels (sections/subsections) are actually generated in the PDF outline tree
 }
 
@@ -111,9 +111,9 @@
 \setcounter{secnumdepth}{4} 
 \setcounter{tocdepth}{3}
 
-\hypersetup{
-    bookmarksdepth=4
-}
+%\hypersetup{
+ %   bookmarksdepth=4
+%}
 
 % 1. Set depth to 0 right BEFORE the printed TOC runs
 %\pretocmd{\tableofcontents}{\setcounter{tocdepth}{0}}{}{}
