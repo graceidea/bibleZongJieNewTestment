@@ -39,23 +39,18 @@
     filecolor=magenta,      
     urlcolor=cyan,
     pdftitle={Sharelatex Example},
-    bookmarks=true,
-    bookmarksdepth=3,      % Go down to subsubsection level
-    bookmarksnumbered=true, % Show section numbers in bookmarks
+    %pdfpagemode=UseOutlines,
+    %bookmarks=true,
+    %bookmarksdepth=3,      % Go down to subsubsection level
+    %bookmarksnumbered=true, % Show section numbers in bookmarks
     pdfpagemode=UseOutlines
 }
 
-
 \usepackage{bookmark}
 \bookmarksetup{
-  numbered=true,          % 书签显示章节编号
-  open=false,         % 自动打开 PDF 的侧边栏书签面板
-  openlevel=0,        % 🌟 只展示到“章”级别（Chapter），点击“章”才会展开底下的“节”
-  depth=3         % 🌟 Ensures lower levels (sections/subsections) are actually generated in the PDF outline tree
+    open=false,        % 打开 PDF 时不展开
+    openlevel=0        % 只显示 chapter
 }
-
-
-
 
 \usepackage{tikz,tikz-qtree} 
 
