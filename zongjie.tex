@@ -27,7 +27,9 @@
 \usepackage{pgfplots} 
 \usepackage{pgfplotstable} 
 \pgfplotsset{compat=1.18} 
-
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{booktabs}
 \usepackage{float}
 
 % 🌟 核心修复 2：安全加载 hyperref 并配合 bookmark 宏包实现侧边栏按需动态展开
@@ -48,6 +50,7 @@
 
 \usepackage{bookmark}
 \bookmarksetup{
+    %color=red,
     open=false,        % 打开 PDF 时不展开
     openlevel=0        % 只显示 chapter
 }
@@ -125,7 +128,7 @@
 \include{ZongJie/SiFuYin/shengping/part2}%耶穌的預備期OK
 \include{ZongJie/SiFuYin/shengping/part3}%耶穌的服事OK
 
-\include{ZongJie/SiFuYin/shengping/zuihouxingcheng/sunday1} %耶稣的最后行程受死復活OK %NOT USED
+\include{ZongJie/SiFuYin/shengping/zuihouxingcheng/sunday1} %耶稣的最后行程受死復活
 \include{ZongJie/SiFuYin/shengping/zuihouxingcheng/monday}
 \include{ZongJie/SiFuYin/shengping/zuihouxingcheng/monday1}
 \include{ZongJie/SiFuYin/shengping/zuihouxingcheng/biaoge}%逾越節筵席/被抓/受死/复活表格
